@@ -1,0 +1,11 @@
+.main_header{
+    /* background-color: midnightblue; */
+    color: white;
+    padding: 15px;
+    width: 90vw;
+    justify-content: space-between;
+}
+
+.header_title{
+    margin: 0;
+}

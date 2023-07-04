@@ -1,0 +1,13 @@
+.input_fields{
+    background-color:#F0F0F0;
+    width:100%;
+    color: black;
+    padding: 0 8px;
+    margin: 5px 0;
+}
+.input_label{
+    color: black;
+}
+#saveButton{
+    margin: 10px 0;
+}

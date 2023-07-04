@@ -1,0 +1,20 @@
+.card{
+    width:auto;
+    background-color: rgba(245, 245, 245, 0.525);
+    /* box-shadow: #ADD8E6 8px 10px 9px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px; */
+}
+.icons{
+    display: none !important;
+} 
+.notes_card:hover{
+    .icons{
+        display: flex !important;
+        transition: 5s ease-in !important;
+    justify-content: space-evenly;
+    }
+} 
+
+.category{
+    background-color: rgb(191, 191, 191);
+    width: min-content !important;
+}

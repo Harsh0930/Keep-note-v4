@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-center container-fluid mb-3">
+    <app-note-add (noteAdded)="onNoteAdded($event)" *ngIf="visible"></app-note-add>
+</div>
+<div class="search_container container-fluid d-flex justify-content-center" style="width: 100;">
+    <app-search (searchNoteCards)="onSearchNoteCards($event)"></app-search>
+</div>
+<div class="notes_container  d-flex justify-content-start my-5 px-1">
+    <app-note [note]="note" *ngFor="let note of notes"></app-note>            
+</div>
+<div class="add_button">
+    <button mat-fab extended color="primary" class="fab_button" (click)="onClick()"><mat-icon>add</mat-icon></button>
+    </div>   
+   
+

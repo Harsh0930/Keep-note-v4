@@ -1,0 +1,31 @@
+<!-- <div class="notes_card  d-inline-flex justify-content-center">
+<div class="card mx-3 py-2" style="width: 12rem;">
+<div class="card-body">
+<p class="card-text fw-semibold fs-5">{{note?.title}}</p>
+<div class="card-content">
+    <p class="card-text">{{note?.content}}</p>
+</div>
+</div>
+</div>
+</div> -->
+
+<mat-card matRipple class="card notes_card  m-2 bg-light p-1 h-auto"style="width: 18rem;">
+<mat-card-content class="card-body m-0 p-1">
+<p class="card-text text-dark fw-semibold fs-5 m-0"><button *ngIf="note?.priority==='Critical'" color="primary" mat-icon-button><mat-icon>gpp_maybe</mat-icon></button>
+<button *ngIf="note?.priority==='High'" color="primary" mat-icon-button><mat-icon>arrow_circle_up</mat-icon></button>
+<button *ngIf="note?.priority==='Medium'" color="accent" mat-icon-button><mat-icon>remove_circle_outline</mat-icon></button><button *ngIf="note?.priority==='High'" color="primary" mat-icon-button><mat-icon>gpp_maybe</mat-icon></button>
+<button *ngIf="note?.priority==='Low'" color="accent" mat-icon-button><mat-icon>arrow_circle_down</mat-icon></button>
+{{note?.title}}</p>
+<blockquote class="text-secondary ms-5">{{note?.reminderDate}}</blockquote>
+<p class="card-text text-dark px-2">{{note?.content}}</p>
+<p class="category w-auto px-3 py-2 mx-2 my-3 rounded-5 text-dark">{{note?.category}}</p>
+</mat-card-content>
+<mat-card-actions class="icons">
+<button mat-icon-button class="text-primary"><mat-icon>comment</mat-icon></button>
+<button routerLink="../notes-edit/{{note?.id}}" mat-icon-button class="text-primary"><mat-icon>edit</mat-icon></button>
+<button routerLink="../notes-delete/{{note?.id}}" mat-icon-button class="text-primary"><mat-icon>delete</mat-icon></button>
+<button mat-icon-button color="accent"><mat-icon>notifications</mat-icon></button>
+</mat-card-actions>
+</mat-card>
+
+

@@ -1,0 +1,74 @@
+<section class="main_section container-fluid my-4">
+    <h3 class="text-dark fs-4 fw-semibold">Registeration Form</h3>
+    <form class="main_form border border-1 border-secondary rounded-3 w-50 p-3" [formGroup]="registerForm" (ngSubmit)="addUser()">
+        <!-- First Name  -->
+        <mat-form-field appearance="legacy">
+            <input matInput type="text" placeholder="First Name" name="firstName" formControlName="firstName">
+            <mat-error *ngIf="firstName?.errors?.['required']">First name is required</mat-error>
+            <mat-error *ngIf="firstName?.errors?.['minlength']">Minimum 2 character required</mat-error>
+        </mat-form-field>
+        <!-- Last Name  -->
+        <mat-form-field appearance="legacy" class="mb-3 ms-4">
+            <input matInput type="text" placeholder="Last Name" name="lastName" formControlName="lastName">
+        </mat-form-field><br>
+        <!-- Email  -->
+        <mat-form-field appearance="legacy" class="mb-3">
+            <input type="text" matInput name="email" formControlName="email" placeholder="Email">
+            <mat-error *ngIf="email?.errors?.['required']">Email id is required</mat-error>
+            <mat-error *ngIf="email?.errors?.['pattern']">Enter valid email address</mat-error>
+        </mat-form-field><br>
+        <!-- Password -->
+        <mat-form-field appearance="legacy" class="mb-5">
+            <input type="password" matInput name="password" formControlName="password" placeholder="Password">
+            <mat-error *ngIf="password?.errors?.['required']">Password id is required</mat-error>
+            <mat-error *ngIf="registerForm.controls.password.errors?.['pattern']">Password should have a minimum 8 characters with at least one symbol, one upper-case letter, one lower-case letter, and one number​</mat-error>
+        </mat-form-field>
+        <!-- Confrim Password  -->
+        <mat-form-field appearance="legacy" class="mb-3 ms-4">
+            <input type="password" matInput name="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password">
+            <mat-error *ngIf="confirmPassword?.errors?.['required']">Confirm password is required</mat-error>
+            <mat-error *ngIf="registerForm.errors?.['passwordMismatch']===true">Password and Confirm Password should match.​</mat-error>
+        </mat-form-field><br>
+        <!-- Gender  -->
+        <mat-label>Gender</mat-label>
+            <mat-radio-group aria-label="Select Gender" class="radio-group mb-3 ms-2" formControlName="gender" name="gender">
+                <mat-radio-button class="radio-button px-2" value="male">Male</mat-radio-button>
+                <mat-radio-button class="px-1" value="female">Female</mat-radio-button>
+                <mat-radio-button class="px-1" value="others">Others</mat-radio-button>
+            </mat-radio-group><br>
+            <!-- Age  -->
+            <mat-form-field appearance="legacy" class="mt-3">
+                <input type="number" matInput name="age" formControlName="age" placeholder="Age">
+                <mat-error *ngIf="registerForm.controls.age.errors?.['invalidAge']">Age must be 18 years and above</mat-error>
+            </mat-form-field>
+             <!-- Phone  -->
+             <mat-form-field appearance="legacy" class="mb-3 ms-4">
+                <input type="text" matInput name="phone" formControlName="phone" placeholder="Phone Number">
+                <mat-error *ngIf="phone?.errors?.['pattern']">Valid phone number contains 10 digits starting with 7/8/9</mat-error>
+            </mat-form-field><br>
+        <!-- Address -->
+        <h2 class="text-dark fw-5">Address</h2>
+        <div formGroupName="address">
+            <!-- Street -->
+            <mat-form-field appearance="legacy" class="mb-3">
+                <input type="text" matInput name="street" formControlName="street" placeholder="Street">
+            </mat-form-field><br>
+            <!-- City -->
+            <mat-form-field appearance="legacy" class="mb-3">
+                <input type="text" matInput name="city" formControlName="city" placeholder="City">
+            </mat-form-field>
+            <!-- State -->
+            <mat-form-field appearance="legacy" class="mb-3 ms-4">
+                <input type="text" matInput name="state" formControlName="state" placeholder="State">
+            </mat-form-field><br>
+            <!-- ZipCode -->
+            <mat-form-field appearance="legacy" class="mb-4">
+                <input type="text" matInput name="zipCode" formControlName="zipCode" placeholder="Zip Code">
+                <mat-error *ngIf="registerForm.controls.address.controls.zipCode.errors?.['pattern']">Zip code should be 5-digit or 6-digit number</mat-error>
+            </mat-form-field>
+        </div>
+        <!-- Button  -->
+        <button color="accent" mat-raised-button matRipple type="reset" class="me-4">Reset</button>
+        <button color="primary" mat-raised-button matRipple type="submit" [disabled]="registerForm.invalid">Save</button>
+    </form>
+</section>
